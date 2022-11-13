@@ -1,14 +1,26 @@
 package com.bl;
 
 public class EmployeeWage {
-    public static void main(String args[]){
-        System.out.println("Welcome to Employee Wge Program");
-        int employeePresent= (int)Math.floor(Math.random()*10)%2;
-        System.out.println(employeePresent);
-        if(employeePresent==1)
-            System.out.println("Employee is present");
-        else
-            System.out.println("Employee is absent");
-        System.out.println("UC1 done");
-    }
+
+    static int WAGE_PER_HOUR=20;
+    static int FULL_DAY_HOUR=10;
+        public static void main(String[] args) {
+            int attendance;
+            int dailyWage = 0;
+            System.out.println("Welcome to Employee Wage Computation");
+            attendance=checkAttendance();
+
+            if (attendance == 1) {
+                System.out.println("Employee is Present");
+              dailyWage = WAGE_PER_HOUR*FULL_DAY_HOUR;
+            }else
+                System.out.println("Employee is Absent");
+
+            System.out.println("Daily Wage = " + dailyWage);
+        }
+
+        static int checkAttendance(){
+            double random = ((Math.random()*10)%2);
+            return (int) random;
+        }
 }
